@@ -2,6 +2,12 @@ sources:
   my-mongodb:
     kind: mongodb
     uri: "mongodb://mongo:password@mongodb:27017/test?authSource=admin&retryWrites=true&w=majority"
+  my-supabase:
+    kind: http
+    baseUrl: "https://uylzwlzgnkxcwcafahmn.supabase.co"
+    headers:
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bHp3bHpnbmt4Y3djYWZhaG1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwMzMwMTYsImV4cCI6MjA2OTYwOTAxNn0.X9oJIxvc6Q-QgiUc2BPkrlDsL_3ZJyfcu0I0dI8KNfE"
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bHp3bHpnbmt4Y3djYWZhaG1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwMzMwMTYsImV4cCI6MjA2OTYwOTAxNn0.X9oJIxvc6Q-QgiUc2BPkrlDsL_3ZJyfcu0I0dI8KNfE"
 tools:
   get_user_profile:
     kind: mongodb-find-one
@@ -15,4 +21,16 @@ tools:
       - name: email
         type: string
         description: The email address of the user to find.
-    
+  get_product_by_ref:
+    kind: http
+    source: my-supabase
+    description: Fetch product details from Supabase by ref
+    path: "/rest/v1/products_new2?select=*&ref=eq.22361020" 
+    method: GET
+  get_product_by_barcode:
+    kind: http
+    source: my-supabase
+    description: Fetch product details from Supabase by barcode
+    path: "/rest/v1/products_new2?select=*&barcode=eq.3664142565604"  
+    method: GET
+  
