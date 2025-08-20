@@ -1,13 +1,13 @@
 sources:
   my-mongodb:
     kind: mongodb
-    uri: "mongodb://mongo:password@mongodb:27017/test?authSource=admin&retryWrites=true&w=majority"
+    uri: ${MONGODB_URI}
   my-supabase:
     kind: http
-    baseUrl: "https://uylzwlzgnkxcwcafahmn.supabase.co"
+    baseUrl: ${SUPABASE_URL}
     headers:
-      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bHp3bHpnbmt4Y3djYWZhaG1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwMzMwMTYsImV4cCI6MjA2OTYwOTAxNn0.X9oJIxvc6Q-QgiUc2BPkrlDsL_3ZJyfcu0I0dI8KNfE"
-      Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bHp3bHpnbmt4Y3djYWZhaG1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQwMzMwMTYsImV4cCI6MjA2OTYwOTAxNn0.X9oJIxvc6Q-QgiUc2BPkrlDsL_3ZJyfcu0I0dI8KNfE"
+      apikey: ${SUPABASE_API_KEY}
+      Authorization: "Bearer ${SUPABASE_API_KEY}"
 tools:
   get_user_profile:
     kind: mongodb-find-one
