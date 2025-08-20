@@ -25,6 +25,17 @@ This project demonstrates how to build a MongoDB and Supabase-backed tool system
 4. toolbox.py → connects to Toolbox server for MongoDB queries
 5. supabase.py → connects to Toolbox server for Supabase product queries
 
+## Environment Variables (.env file)
+Create a `.env` file in the project root with the following variables:
+
+```env
+# MongoDB Connection
+MONGODB_URI=<YOUR MONGODB_URI>
+
+# Supabase Configuration
+SUPABASE_URL=<YOUR SUPABASE_URL>
+SUPABASE_API_KEY=<your-supabase-anon-key>
+```
 ## Setup Instructions
 1. **Create & Activate Python Virtual Environment**:
     ```bash
